@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title id="pageTitle">திருமண அழைப்பிதழ் | KARTIKEYAN & THABUSHRI</title>
+<meta name="description" content="கார்த்திகேயன் & தபுஸ்ரீயின் திருமண அழைப்பிதழ் — நவம்பர் 11 &amp; 12, 2026">
+
+<!-- Open Graph -->
+<meta property="og:title" content="திருமண அழைப்பிதழ் | KARTIKEYAN & THABUSHRI">
+<meta property="og:description" content="எங்கள் திருமண விழாவில் தாங்களும் கலந்துகொண்டு வாழ்த்த அன்புடன் அழைக்கின்றோம்.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="images/couple.jpg">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="திருமண அழைப்பிதழ் | KARTIKEYAN & THABUSHRI">
+<meta name="twitter:description" content="எங்கள் திருமண விழாவில் தாங்களும் கலந்துகொண்டு வாழ்த்த அன்புடன் அழைக்கின்றோம்.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%237a1224'/%3E%3Ctext x='50' y='66' font-size='54' text-anchor='middle' fill='%23d4af37'%3E%E0%AE%B8%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Tamil:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ OPENING / DOOR ANIMATION ============ -->
+<div id="openingOverlay" class="opening-overlay" aria-hidden="true">
+  <div class="door door-left"><div class="door-motif"></div></div>
+  <div class="door door-right"><div class="door-motif"></div></div>
+  <div class="opening-content">
+    <span class="opening-sri">ஸ்ரீ</span>
+    <span class="opening-title">திருமண அழைப்பிதழ்</span>
+    <div class="opening-loader"><span></span><span></span><span></span></div>
+  </div>
+  <button id="skipOpening" class="skip-btn" type="button">தவிர்க்க / Skip</button>
+</div>
+
+<!-- ============ PETALS CANVAS LAYER ============ -->
+<div id="petalLayer" class="petal-layer" aria-hidden="true"></div>
+
+<!-- ============ FLOATING CONTROLS ============ -->
+<div class="floating-controls">
+  <button id="musicToggle" class="fab" type="button" aria-label="இசையை இயக்க/நிறுத்த" aria-pressed="false">
+    <span class="fab-icon music-icon">♫</span>
+  </button>
+  <button id="shareToggle" class="fab" type="button" aria-label="அழைப்பிதழைப் பகிர">
+    <span class="fab-icon">❀</span>
+  </button>
+</div>
+
+<!-- ============ SHARE PANEL ============ -->
+<!-- <div id="sharePanel" class="share-panel" hidden>
+  <div class="share-panel-inner">
+    <p class="share-text">இந்த திருமண அழைப்பிதழை உங்கள் நண்பர்கள் மற்றும் உறவினர்களுடன் பகிருங்கள் ❤️</p>
+    <div class="share-buttons">
+      <button class="share-btn" data-share="whatsapp" type="button">WhatsApp</button>
+      <button class="share-btn" data-share="facebook" type="button">Facebook</button>
+      <button class="share-btn" data-share="copy" type="button">இணைப்பை நகலெடு</button>
+      <button class="share-btn" data-share="native" type="button" id="nativeShareBtn" hidden>பகிர்</button>
+    </div>
+    <button class="share-close" id="shareClose" type="button" aria-label="மூடு">✕</button>
+  </div>
+</div> -->
+
+<audio id="bgMusic" loop preload="none"></audio>
+
+<main id="mainContent" class="main-content">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="hero">
+    <div class="hero-kolam" aria-hidden="true"></div>
+    <div class="hero-frame">
+      <div class="corner-motif tl"></div>
+      <div class="corner-motif tr"></div>
+      <div class="corner-motif bl"></div>
+      <div class="corner-motif br"></div>
+
+      <p class="sri-mark reveal">ஸ்ரீ</p>
+      <h1 class="hero-title reveal">திருமண அழைப்பிதழ்</h1>
+      <p class="hero-blessing reveal">பெற்றோர் மற்றும் பெரியோரின் ஆசியுடன்<br><span class="hero-blessing-en">With the blessings of our parents and elders</span></p>
+
+      <div class="couple-names reveal">
+        <div class="name-block">
+          <span class="name-label">மணமகன்</span>
+          <span class="name-value" id="groomNameHero">KARTIKEYAN</span>
+          <span class="name-label">M.com(CA)</span>
+        </div>
+        <span class="heart-divider">♥</span>
+        <div class="name-block">
+          <span class="name-label">மணமகள்</span>
+          <span class="name-value" id="brideNameHero">S.தபுஸ்ரீ</span>
+          <span class="name-label">M.Sc</span>
+        </div>
+      </div>
+
+      <div class="hero-date reveal" id="heroDate">11 நவம்பர் 2026</div>
+      <a href="#details" class="scroll-cue" aria-label="கீழே செல்ல">
+        <span class="scroll-cue-line"></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ COUPLE PHOTO ============ -->
+  <section class="section couple-section" id="couple">
+    <div class="section-divider" aria-hidden="true"></div>
+    <div class="couple-photo-wrap reveal">
+      <div class="gold-frame">
+        <div class="frame-pattern top"></div>
+        <div class="frame-pattern bottom"></div>
+        <img id="couplePhoto" src="images/couple.jpg" alt="மணமகன் மற்றும் மணமகள்" loading="lazy"
+             onerror="this.closest('.gold-frame').classList.add('img-missing')">
+        <div class="img-fallback" aria-hidden="true">
+          <span>❀</span>
+          <p>couple.jpg</p>
+        </div>
+      </div>
+    </div>
+    <p class="couple-intro reveal" id="coupleMessage">
+      "எங்கள் இல்லத் திருமண விழாவில் தாங்களும் தங்கள் குடும்பத்தாரும் கலந்து கொண்டு மணமக்களை வாழ்த்தி அருளுமாறு அன்புடன் அழைக்கின்றோம்."
+    </p>
+  </section>
+
+  <!-- ============ COUNTDOWN ============ -->
+  <section class="section countdown-section" id="countdown">
+    <div class="lamp-wrap reveal" aria-hidden="true">
+      <svg class="kuthuvilakku" viewBox="0 0 120 220" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="brassGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#e9c46a"/>
+            <stop offset="100%" stop-color="#b8892f"/>
+          </linearGradient>
+        </defs>
+        <ellipse cx="60" cy="205" rx="34" ry="8" fill="url(#brassGrad)"/>
+        <rect x="55" y="120" width="10" height="85" fill="url(#brassGrad)"/>
+        <ellipse cx="60" cy="120" rx="26" ry="7" fill="url(#brassGrad)"/>
+        <path d="M35 120 Q60 95 85 120 Q60 108 35 120Z" fill="url(#brassGrad)"/>
+        <circle cx="60" cy="90" r="9" fill="url(#brassGrad)"/>
+        <g class="flame-group">
+          <path class="flame-outer" d="M60 40c9 14 13 24 13 33a13 13 0 0 1-26 0c0-9 4-19 13-33Z" fill="#ff9f45"/>
+          <path class="flame-inner" d="M60 55c5 9 7 15 7 20a7 7 0 0 1-14 0c0-5 2-11 7-20Z" fill="#fff2c4"/>
+        </g>
+      </svg>
+    </div>
+    <h2 class="section-title reveal">திருமணத்திற்கு இன்னும்...</h2>
+    <div id="countdownBox" class="countdown-box reveal">
+      <div class="count-card"><span id="cdDays">00</span><small>நாட்கள்</small></div>
+      <div class="count-card"><span id="cdHours">00</span><small>மணி</small></div>
+      <div class="count-card"><span id="cdMins">00</span><small>நிமிடம்</small></div>
+      <div class="count-card"><span id="cdSecs">00</span><small>வினாடி</small></div>
+    </div>
+    <p id="countdownDone" class="countdown-done" hidden>இனிய திருமண நாள் வாழ்த்துக்கள்! 🎉</p>
+  </section>
+
+  <!-- ============ WEDDING DETAILS ============ -->
+  <section class="section details-section" id="details">
+    <div class="section-divider" aria-hidden="true"></div>
+    <h2 class="section-title reveal">திருமண நிகழ்வு</h2>
+    <div class="details-grid reveal">
+      <div class="detail-card">
+        <span class="detail-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><path d="M24 6c-7 0-12 6-12 13 0 9 8 15 12 23 4-8 12-14 12-23 0-7-5-13-12-13Z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="19" r="5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        </span>
+        <span class="detail-label">முகூர்த்த நாள்</span>
+        <span class="detail-value" id="detailDate">11 நவம்பர் 2026</span>
+      </div>
+      <div class="detail-card">
+        <span class="detail-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="18" fill="none" stroke="currentColor" stroke-width="2"/><path d="M24 14v10l7 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </span>
+        <span class="detail-label">முகூர்த்த நேரம்</span>
+        <span class="detail-value" id="detailTime">காலை 10:30</span>
+      </div>
+      <div class="detail-card">
+        <span class="detail-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><path d="M24 4C15 4 8 11 8 20c0 12 16 24 16 24s16-12 16-24c0-9-7-16-16-16Z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="20" r="5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        </span>
+        <span class="detail-label">இடம்</span>
+        <span class="detail-value" id="detailVenue">ஸ்ரீ மகால் திருமண மண்டபம்</span>
+      </div>
+      <div class="detail-card">
+        <span class="detail-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><path d="M12 8h24v6l-8 10 8 10v6H12v-6l8-10-8-10Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="detail-label">முகவரி</span>
+        <span class="detail-value" id="detailAddress">திருச்சி சாலை, தஞ்சாவூர், தமிழ்நாடு</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EVENTS TIMELINE ============ -->
+  <section class="section events-section" id="events">
+    <div class="section-divider" aria-hidden="true"></div>
+    <h2 class="section-title reveal">திருமண நிகழ்வுகள்</h2>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"><span>❀</span></div>
+        <div class="timeline-card">
+          <h3 id="event1Title">நிச்சயதார்த்தம் / வரவேற்பு</h3>
+          <p class="timeline-date" id="event1Date">11 நவம்பர் 2026</p>
+          <p class="timeline-time" id="event1Time">மாலை 06:00</p>
+          <p class="timeline-venue" id="event1Venue">ஸ்ரீ மகால் திருமண மண்டபம்</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"><span>❀</span></div>
+        <div class="timeline-card">
+          <h3 id="event2Title">திருமணம்</h3>
+          <p class="timeline-date" id="event2Date">12 நவம்பர் 2026</p>
+          <p class="timeline-time" id="event2Time">காலை 10:30</p>
+          <p class="timeline-venue" id="event2Venue">ஸ்ரீ மகால் திருமண மண்டபம்</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VENUE / MAP ============ -->
+  <section class="section venue-section" id="venue">
+    <div class="section-divider" aria-hidden="true"></div>
+    <h2 class="section-title reveal">இடம் &amp; வழிகாட்டி</h2>
+    <div class="venue-card reveal">
+      <h3 id="venueName">ஸ்ரீ மகால் திருமண மண்டபம்</h3>
+      <p id="venueAddress">திருச்சி சாலை, தஞ்சாவூர், தமிழ்நாடு</p>
+      <a id="mapsLink" class="maps-btn" href="#" target="_blank" rel="noopener">Google Maps-ல் வழியைப் பார்க்க</a>
+      <div class="map-embed-wrap" id="mapEmbedWrap">
+        <div class="map-placeholder" id="mapPlaceholder">
+          <span>🗺</span>
+          <p>வழிபடத்தை காண Google Maps இணைப்பைச் சேர்க்கவும்</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <!-- <section class="section gallery-section" id="gallery">
+    <div class="section-divider" aria-hidden="true"></div>
+    <h2 class="section-title reveal">புகைப்பட தொகுப்பு</h2>
+    <div class="gallery-grid reveal" id="galleryGrid"></div>
+  </section> -->
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox-close" id="lightboxClose" aria-label="மூடு">✕</button>
+    <button class="lightbox-nav prev" id="lightboxPrev" aria-label="முந்தையது">‹</button>
+    <img id="lightboxImg" src="" alt="">
+    <button class="lightbox-nav next" id="lightboxNext" aria-label="அடுத்தது">›</button>
+  </div>
+
+  <!-- ============ BLESSINGS ============ -->
+  <section class="section blessings-section" id="blessings">
+    <div class="section-divider" aria-hidden="true"></div>
+    <div class="blessings-frame reveal">
+      <p class="blessings-text" id="blessingsText">
+        "எங்கள் இல்லத் திருமண விழாவில் தாங்களும் தங்கள் குடும்பத்தாரும் கலந்து கொண்டு மணமக்களை வாழ்த்தி அருளுமாறு அன்புடன் அழைக்கின்றோம்."
+      </p>
+      <p class="blessings-signature" id="blessingsSignature">அன்புடன்,<br>பெற்றோர் மற்றும் உற்றார் உறவினர்</p>
+    </div>
+  </section>
+
+  <!-- ============ RSVP ============ -->
+  <section class="section rsvp-section" id="rsvp">
+    <div class="section-divider" aria-hidden="true"></div>
+    <h2 class="section-title reveal">உங்கள் வருகையைத் தெரிவிக்கவும்</h2>
+    <div class="rsvp-buttons reveal">
+      <a id="whatsappBtn" class="rsvp-btn whatsapp" href="#" target="_blank" rel="noopener">
+        <span aria-hidden="true">💬</span> WhatsApp மூலம் தெரிவிக்க
+      </a>
+      <a id="callBtn" class="rsvp-btn call" href="#">
+        <span aria-hidden="true">📞</span> Call செய்ய
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="footer">
+    <div class="footer-motif" aria-hidden="true"></div>
+    <p class="footer-line1" id="footerLine1">உங்கள் வருகையே எங்கள் திருமண விழாவின் சிறப்பு</p>
+    <p class="footer-line2" id="footerLine2">அன்புடன்,<br>குடும்பத்தினர்</p>
+    <p class="footer-copy">© 2026 Wedding Invitation</p>
+  </footer>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
