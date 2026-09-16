@@ -1,0 +1,2 @@
+Place groom.jpg, bride.jpg, couple.jpg, photo1.jpg ... photo6.jpg here.
+Recommended: couple.jpg ~ 1000x1250px (4:5), gallery photos square or portrait, all under 1-2MB each for fast loading.
